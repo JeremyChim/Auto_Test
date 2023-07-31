@@ -8,12 +8,16 @@
 import openpyxl as op
 
 def ret_coord(x:int, y:int):
-    wb = op.load_workbook('case.xlsx')
+    wb = op.load_workbook('report.xlsx')
     ws = wb.worksheets[0]
     a = ws.cell(row=x, column=y)
     a = a.coordinate
     return a
 
 if __name__ == '__main__':
+    from os import system
+    cmd = 'copy case.xlsx report.xlsx'
+    system(cmd)
+
     a = ret_coord(1,1)
     print(a.__class__, a)

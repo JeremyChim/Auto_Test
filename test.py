@@ -5,17 +5,26 @@
 # @IDE ：PyCharm
 # @Github ：https://github.com/JeremyChim/
 
+from os import system
+from len import ret_row
 from read import ret_val
 from list import ret_lst
 from adb import ret_out_err
 from if_ import ret_pass_fail
 from xy import ret_coord
+from style import save_style
 from save import save_res
 from time import time
 from date import now
 from time import sleep
 
-for i in range(18):
+cmd = 'copy case.xlsx report.xlsx'
+system(cmd)
+
+row = ret_row()
+row -= 1
+
+for i in range(row):
     try:
         ts1 = time()
 
@@ -28,8 +37,17 @@ for i in range(18):
 
         a = ret_lst(a)
         a, err = ret_out_err(a) # run...
-        c = ret_coord(i, 9)
+        c = ret_coord(i, 10)
         save_res(c, a)
+        save_style(c)
+
+        t = ret_val(i, 8)
+        if t:
+            print(f'wait: {t}s')
+            sleep(t)
+            c = ret_coord(i, 8)
+            save_res(c, t)
+            save_style(c)
 
         b = ret_val(i, 4)
         print(f'if: {b}')
@@ -37,6 +55,7 @@ for i in range(18):
         print(f'case result: {a}')
         c = ret_coord(i, 5)
         save_res(c, a)
+        save_style(c)
 
         ts2 = time()
 
@@ -46,18 +65,21 @@ for i in range(18):
         print(f'time: {ts}s')
         c = ret_coord(i, 6)
         save_res(c, ts)
+        save_style(c)
 
         n = now()
-        print(f'now: {n}')
+        print(f'date: {n}')
         c = ret_coord(i, 7)
         save_res(c, n)
+        save_style(c)
 
-        t = ret_val(i, 8)
+        t = ret_val(i, 9)
         if t:
-            print(f'wait: {t}s')
+            print(f'sleep: {t}s')
             sleep(t)
-            c = ret_coord(i, 8)
+            c = ret_coord(i, 9)
             save_res(c, t)
+            save_style(c)
 
     except:
         print(' !!!Σ(⊙▽⊙"a Error !!! '*5)

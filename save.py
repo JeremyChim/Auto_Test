@@ -8,10 +8,10 @@
 import openpyxl as op
 
 def save_res(x:str, t:str):
-    wb = op.load_workbook('case.xlsx')
+    wb = op.load_workbook('report.xlsx')
     ws = wb.worksheets[0]
     ws[x] = t
-    wb.save('case.xlsx')
+    wb.save('report.xlsx')
 
 if __name__ == '__main__':
     x = 'E2'
