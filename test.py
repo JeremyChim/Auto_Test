@@ -59,7 +59,7 @@ for i in range(row):
         b = ret_val(i, 4)
         print(f'if: {b}')
         a = ret_pass_fail(b, a)
-        print(f'case result: {a}')
+        print(f'result: {a}')
         c = ret_coord(i, 5)
         save_res(c, a)
         save_style(c)
