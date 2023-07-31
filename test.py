@@ -29,6 +29,9 @@ for i in range(row):
         ts1 = time()
 
         i += 2
+        a = ret_val(i, 1)
+        print(f'id: {a}')
+
         a = ret_val(i, 2)
         print(f'case: {a}')
 
@@ -39,6 +42,10 @@ for i in range(row):
         a, err = ret_out_err(a) # run...
         c = ret_coord(i, 10)
         save_res(c, a)
+        save_style(c)
+
+        c = ret_coord(i, 11)
+        save_res(c, err)
         save_style(c)
 
         t = ret_val(i, 8)
