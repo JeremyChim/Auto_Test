@@ -9,7 +9,6 @@ from subprocess import *
 from byte import ret_byte
 from str import ret_str
 
-
 def ret_out_err(a:list):
     pop = Popen('adb shell', stdin=PIPE, stdout=PIPE, stderr=PIPE)
     a = ret_byte(a)
@@ -27,4 +26,5 @@ if __name__ == '__main__':
          'exit']
 
     out, err = ret_out_err(d)
-    print(out, err)
+    print(out)
+    print(err)
